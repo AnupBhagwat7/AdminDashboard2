@@ -16,11 +16,6 @@
 		<!-- <intercept-url pattern="/login" access="hasRole('ANONYMOUS')" />-->
 		<intercept-url pattern="/" access="hasRole('ROLE_USER')" />
 		<intercept-url pattern="/welcome" access="hasRole('ROLE_USER')" />
-		<intercept-url pattern="/user/homepage" access="hasRole('ROLE_USER')" />
-	<!-- 	<intercept-url pattern="/forgotPassword" access="hasRole('ROLE_USER')" />-->
-		<intercept-url pattern="/resetPassword" access="hasRole('ANONYMOUS')" />
-		<intercept-url pattern="/newPassword" access="hasRole('ANONYMOUS')" /> 
-		
 		<intercept-url pattern="/employer/dashboard" access="hasRole('ROLE_EMPLOYER')" />
 		<intercept-url pattern="/admin/dashboard" access="hasRole('ROLE_ADMIN')" />
 		
@@ -28,8 +23,6 @@
 			authentication-failure-url="/login?error" username-parameter="username"	password-parameter="password" 
 			authentication-success-handler-ref="authSuccessHandler" />
 		<logout invalidate-session="true" logout-success-url="/login?logout" />
-		
-		<csrf disabled="true"/>
 	</http>
 
 	<authentication-manager alias="authenticationManager">
