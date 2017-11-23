@@ -9,7 +9,7 @@
 <head>
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
-<title>AdminLTE 2 | Dashboard</title>
+<title>Admin Dashboard</title>
 <!-- Tell the browser to be responsive to screen width -->
 <meta
 	content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"
@@ -243,8 +243,7 @@
 						<li class="dropdown user user-menu"><a href="#"
 							class="dropdown-toggle" data-toggle="dropdown"> <img
 								src="${contextPath}/resources/adminLTE/dist/img/user2-160x160.jpg" class="user-image"
-								alt="User Image"> <span class="hidden-xs">Alexander
-									Pierce</span>
+								alt="User Image"> <span class="hidden-xs">${pageContext.request.userPrincipal.name}</span>
 						</a>
 							<ul class="dropdown-menu">
 								<!-- User image -->
@@ -253,7 +252,7 @@
 									alt="User Image">
 
 									<p>
-										Alexander Pierce - Web Developer <small>Member since
+										${pageContext.request.userPrincipal.name} - Web Developer <small>Member since
 											Nov. 2012</small>
 									</p></li>
 								<!-- Menu Body -->
@@ -307,7 +306,7 @@
 							alt="User Image">
 					</div>
 					<div class="pull-left info">
-						<p>Alexander Pierce</p>
+						<p>${pageContext.request.userPrincipal.name}</p>
 						<a href="#"><i class="fa fa-circle text-success"></i> Online</a>
 					</div>
 				</div>
@@ -659,7 +658,7 @@
 									<p class="message">
 										<a href="#" class="name"> <small
 											class="text-muted pull-right"><i
-												class="fa fa-clock-o"></i> 5:15</small> Alexander Pierce
+												class="fa fa-clock-o"></i> 5:15</small> ${pageContext.request.userPrincipal.name}
 										</a> I would like to meet you to discuss the latest news about the
 										arrival of the new theme. They say it is going to be one the
 										best themes on the market
