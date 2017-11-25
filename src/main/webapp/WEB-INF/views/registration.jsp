@@ -20,6 +20,12 @@
     <link href="${contextPath}/resources/css/common.css" rel="stylesheet"/>
     <link href="${contextPath}/resources/adminLTE/plugins/daterangepicker/daterangepicker.css" rel="stylesheet"/>
     <link href="${contextPath}/resources/adminLTE/plugins/datepicker/datepicker3.css" rel="stylesheet"/>
+	<link href="${contextPath}/resources/adminLTE/plugins/select2/select2.min.css" rel="stylesheet" >
+	<!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css">
+  <!-- Ionicons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css">
+    
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
     <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
@@ -58,38 +64,27 @@
         </spring:bind>
         
         <spring:bind path="dob">
-        <%-- <div class="input-group date form-group ${status.error ? 'has-error' : ''}">
+       
+        <div class="form-group">
+                <div class="input-group date">
                   <div class="input-group-addon">
                     <i class="fa fa-calendar"></i>
                   </div>
-                  <form:input class="form-control pull-right" id="datepicker" path="dob"  type="text" ></form:input>
-                  <form:errors path="dob"></form:errors>
-        </div> --%>
-        
-        <div class="input-group date ${status.error ? 'has-error' : ''}">
-                  <div class="input-group-addon">
-                    <i class="fa fa-calendar"></i>
-                  </div>
-                  <input class="form-control pull-right" id="datepicker" type="text">
-        </div>
+                  <!-- <input class="form-control pull-right" id="datepicker1" type="text"> -->
+                   <form:input type="text" path="dob" class="form-control" placeholder="Birth Date" id="datepicker1"
+                            autofocus="true"></form:input>
+                	<form:errors path="dob"></form:errors>
+                </div>
+                <!-- /.input group -->
+              </div>
         </spring:bind>
         
-        <%-- <spring:bind path="gender">
-        <div class="form-group">
-                <label class="">
-                  <div class="iradio_flat-green checked" style="position: relative;" aria-checked="true" aria-disabled="false"><form:input path="gender" class="flat-red" checked="" style="position: absolute; opacity: 0;" type="radio"/><ins class="iCheck-helper" style="position: absolute; top: 0%; left: 0%; display: block; width: 100%; height: 100%; margin: 0px; padding: 0px; background: rgb(255, 255, 255) none repeat scroll 0% 0%; border: 0px none; opacity: 0;"></ins>Male</div>
-                   <form:errors path="gender"></form:errors>
-                </label>
-                <label class="">
-                  <div class="iradio_flat-green" style="position: relative;" aria-checked="false" aria-disabled="false"><form:input path="gender" class="flat-red" style="position: absolute; opacity: 0;" type="radio"/><ins class="iCheck-helper" style="position: absolute; top: 0%; left: 0%; display: block; width: 100%; height: 100%; margin: 0px; padding: 0px; background: rgb(255, 255, 255) none repeat scroll 0% 0%; border: 0px none; opacity: 0;"></ins>Female</div>
-                   <form:errors path="gender"></form:errors>
-                </label>
-                <label>
-                  <div class="iradio_flat-green disabled" style="position: relative;" aria-checked="false" aria-disabled="true"><input name="r3" class="flat-red" disabled="" style="position: absolute; opacity: 0;" type="radio"><ins class="iCheck-helper" style="position: absolute; top: 0%; left: 0%; display: block; width: 100%; height: 100%; margin: 0px; padding: 0px; background: rgb(255, 255, 255) none repeat scroll 0% 0%; border: 0px none; opacity: 0;"></ins></div>
-                  Flat green skin radio
-                </label>
+        <spring:bind path="gender">
+        <div class="form-group">              
+                <form:radiobutton path="gender" value="M" style="margin-right: 13px;"/>Male
+				<form:radiobutton path="gender" value="F" style="margin-left: 23px;margin-right: 11px;"/>Female              
         </div>
-        </spring:bind> --%>
+        </spring:bind> 
         
         <spring:bind path="password">
             <div class="form-group ${status.error ? 'has-error' : ''}">
@@ -111,20 +106,94 @@
 
 </div>
 <!-- /container -->
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
-<script src="${contextPath}/resources/adminLTE/plugins/datepicker/bootstrap-datepicker.js"></script>
-<script src="${contextPath}/resources/adminLTE/plugins/daterangepicker/moment.min.js"></script>
-<script src="${contextPath}/resources/adminLTE/plugins/daterangepicker/moment.js"></script>
+<!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script> -->
+<!-- jQuery 2.2.3 -->
+<script src="${contextPath}/resources/adminLTE/plugins/jQuery/jquery-2.2.3.min.js"></script>
 <script src="${contextPath}/resources/js/bootstrap.min.js"></script>
+<!-- Select2 -->
+<script src="${contextPath}/resources/adminLTE/plugins/select2/select2.full.min.js"></script>
+<!-- InputMask -->
+<script src="${contextPath}/resources/adminLTE/plugins/input-mask/jquery.inputmask.js"></script>
+<script src="${contextPath}/resources/adminLTE/plugins/input-mask/jquery.inputmask.date.extensions.js"></script>
+<script src="${contextPath}/resources/adminLTE/plugins/input-mask/jquery.inputmask.extensions.js"></script>
 
-<!-- <input type="text" name="birthday" id="birthday" class="datepicker" required="required" placeholder="yyyy/mm/dd" />
+<!-- date-range-picker -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.11.2/moment.min.js"></script>
+<script src="${contextPath}/resources/adminLTE/plugins/daterangepicker/daterangepicker.js"></script>
+<!-- bootstrap datepicker -->
+<script src="${contextPath}/resources/adminLTE/plugins/datepicker/bootstrap-datepicker.js"></script>
 
-<script type="text/javascript">jQuery(document).ready(function($) {
+<!-- date-range-picker -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.11.2/moment.min.js"></script>
 
-    $('.datepicker').datetimepicker();
 
-});
-</script> -->
+<script>
+  $(function () {
+/*    //Initialize Select2 Elements
+    $(".select2").select2();
+
+    //Datemask dd/mm/yyyy
+    $("#datemask").inputmask("dd/mm/yyyy", {"placeholder": "dd/mm/yyyy"});
+    //Datemask2 mm/dd/yyyy
+    $("#datemask2").inputmask("mm/dd/yyyy", {"placeholder": "mm/dd/yyyy"});
+    //Money Euro
+    $("[data-mask]").inputmask();
+
+     //Date range picker
+    $('#reservation').daterangepicker();
+    //Date range picker with time picker
+    $('#reservationtime').daterangepicker({timePicker: true, timePickerIncrement: 30, format: 'MM/DD/YYYY h:mm A'});
+    //Date range as a button
+    $('#daterange-btn').daterangepicker(
+        {
+          ranges: {
+            'Today': [moment(), moment()],
+            'Yesterday': [moment().subtract(1, 'days'), moment().subtract(1, 'days')],
+            'Last 7 Days': [moment().subtract(6, 'days'), moment()],
+            'Last 30 Days': [moment().subtract(29, 'days'), moment()],
+            'This Month': [moment().startOf('month'), moment().endOf('month')],
+            'Last Month': [moment().subtract(1, 'month').startOf('month'), moment().subtract(1, 'month').endOf('month')]
+          },
+          startDate: moment().subtract(29, 'days'),
+          endDate: moment()
+        },
+        function (start, end) {
+          $('#daterange-btn span').html(start.format('MMMM D, YYYY') + ' - ' + end.format('MMMM D, YYYY'));
+        }
+    ); */
+
+    //Date picker
+    $('#datepicker1').datepicker({
+      autoclose: true
+    });
+
+/*     //iCheck for checkbox and radio inputs
+    $('input[type="checkbox"].minimal, input[type="radio"].minimal').iCheck({
+      checkboxClass: 'icheckbox_minimal-blue',
+      radioClass: 'iradio_minimal-blue'
+    });
+    //Red color scheme for iCheck
+    $('input[type="checkbox"].minimal-red, input[type="radio"].minimal-red').iCheck({
+      checkboxClass: 'icheckbox_minimal-red',
+      radioClass: 'iradio_minimal-red'
+    });
+    //Flat red color scheme for iCheck
+    $('input[type="checkbox"].flat-red, input[type="radio"].flat-red').iCheck({
+      checkboxClass: 'icheckbox_flat-green',
+      radioClass: 'iradio_flat-green'
+    });
+
+    //Colorpicker
+    $(".my-colorpicker1").colorpicker();
+    //color picker with addon
+    $(".my-colorpicker2").colorpicker();
+
+    //Timepicker
+    $(".timepicker").timepicker({
+      showInputs: false
+    }); */
+  });
+</script>
 
 
 </body>

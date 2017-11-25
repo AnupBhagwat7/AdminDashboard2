@@ -16,10 +16,10 @@ import javax.persistence.*;
 public class User {
     private Long id;
     private String username;
-   /* private String email;
+    private String email;
     private String mobileNo;
     private String dob;
-    private String gender;*/
+    private String gender;
     private String password;
     private String passwordConfirm;
     private Set<Role> roles;
@@ -69,7 +69,7 @@ public class User {
         this.roles = roles;
     }
 
-	/*public String getEmail() {
+	public String getEmail() {
 		return email;
 	}
 
@@ -99,7 +99,7 @@ public class User {
 
 	public void setGender(String gender) {
 		this.gender = gender;
-	}*/
+	}
     
     
     

@@ -1,19 +1,5 @@
-//Old Queries
-
-CREATE TABLE USERS
-(
-   id int PRIMARY KEY NOT NULL ,
-   uName varchar(50) NOT NULL,
-   pwd varchar(50) NOT NULL
-);
-
-SELECT * FROM USERS; 
-
-
-//New queries
-
 CREATE DATABASE  IF NOT EXISTS `admindashboarddb`;
-USE `accounts`;
+USE `admindashboarddb`;
 --
 -- Table structure for table `role`
 --
@@ -30,7 +16,9 @@ CREATE TABLE `role` (
 --
 
 LOCK TABLES `role` WRITE;
-INSERT INTO `role` VALUES (1,'ROLE_USER');
+INSERT INTO `role` VALUES (1,'ROLE_ADMIN');
+INSERT INTO `role` VALUES (2,'ROLE_USER');
+INSERT INTO `role` VALUES (3,'ROLE_EMPLOYER');
 UNLOCK TABLES;
 
 --
@@ -40,8 +28,12 @@ UNLOCK TABLES;
 DROP TABLE IF EXISTS `user`;
 CREATE TABLE `user` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `username` varchar(255) DEFAULT NULL,
-  `password` varchar(255) DEFAULT NULL,
+  `username` varchar(50) DEFAULT NULL,
+  `password` varchar(300) DEFAULT NULL,
+  `email` varchar(60) ,
+  `mobileNo` varchar(20),
+  `dob` varchar(20),
+  `gender` varchar(5),
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
 

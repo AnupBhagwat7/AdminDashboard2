@@ -38,7 +38,9 @@ body {
     border-bottom-right-radius: 0;
     border-bottom-left-radius: 0;
 }
-
+#datepicker1 {
+    margin-top: 0;
+}
 .form-signin button {
     margin-top: 10px;
 }
