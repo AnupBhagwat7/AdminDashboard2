@@ -72,7 +72,7 @@ public class MainController {
 		securityService.autologin(userForm.getUsername(), userForm.getPasswordConfirm());
 
 		logger.debug(" registration is successful . Redirecting to homepage. ");
-		return "redirect:/user/homepage";
+		return "redirect:/welcome";
 	}
 
 	@RequestMapping(value = "/login", method = RequestMethod.GET)
@@ -106,7 +106,7 @@ public class MainController {
 	public String welcome(Model model) {
 		
 		logger.debug("Loading dashboard page");
-		return "/user/homepage";
+		return "/user/homepageUser";
 	}
 		
 	@RequestMapping(value="/forgotPassword", method = RequestMethod.GET)
